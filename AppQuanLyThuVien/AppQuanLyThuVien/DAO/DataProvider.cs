@@ -57,5 +57,33 @@ namespace AppQuanLyThuVien.DAO
             }
             return data;
         }
+        public int ExcuteScalarInt(string query)
+        {
+            int data = 0;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand(query, connection);
+
+                data = (int)command.ExecuteScalar();
+                connection.Close();
+            }
+            return data;
+        }
+        public string ExcuteScalarString(string query)
+        {
+            string data = "";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand(query, connection);
+
+                data = command.ExecuteScalar().ToString();
+                connection.Close();
+            }
+            return data;
+        }
     }
 }
