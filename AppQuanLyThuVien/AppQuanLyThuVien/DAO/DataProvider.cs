@@ -6,28 +6,28 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace LB.DAO
+namespace AppQuanLyThuVien.DAO
 {
-    class DataPovider
+    class DataProvider
     {
 
 
-        private static DataPovider instance;
-        private string connectionString = "Data Source=DESKTOP-R5U5ONO\\SQLEXPRESS;Initial Catalog=LibraryManagement;Integrated Security=True";
+        private static DataProvider instance;
+        private string connectionString = "Data Source=DESKTOP-LRU6PGB\\SQLEXPRESS;Initial Catalog=LibraryManagement;Integrated Security=True";
 
-        public static DataPovider Instance
+        public static DataProvider Instance
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = new DataPovider();
+                    instance = new DataProvider();
                 }
                 return instance;
             }
             private set => instance = value;
         }
-        private DataPovider() { }
+        private DataProvider() { }
         public DataTable ExcuteQuery(string query)
         {
             DataTable table = new DataTable();

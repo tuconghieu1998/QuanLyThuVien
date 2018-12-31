@@ -1,5 +1,5 @@
-﻿using LB.DAO;
-using LB.DTO;
+﻿using AppQuanLyThuVien.DAO;
+using AppQuanLyThuVien.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,7 +26,7 @@ namespace AppQuanLyThuVien.UC
             string query = "SELECT * FROM DOC_GIA";
 
             DataTable tabel = new DataTable();
-            tabel = DataPovider.Instance.ExcuteQuery(query);
+            tabel = DataProvider.Instance.ExcuteQuery(query);
             dataGridView.DataSource = tabel;
 
         }
