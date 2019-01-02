@@ -42,7 +42,12 @@ namespace AppQuanLyThuVien.DAO
         {
             string query = string.Format("insert THE_LOAI (ten_the_loai,ma_sach_tuong_ung) values (N'{0}','{1}')", ten_the_loai, ma_sach_tuong_ung);
             return DataProvider.Instance.ExcuteNonQuery(query);
-
+        }
+        public static int LayPhanTramKhuyenMai(int capdo)
+        {
+            string capdos = string.Format("{0}", capdo);
+            string query = string.Format("select phan_tram_khuyen_mai from KHUYEN_MAI where cap_do = '{0}'", capdos);
+            return DataProvider.Instance.ExcuteScalarInt(query);
         }
     }
 }

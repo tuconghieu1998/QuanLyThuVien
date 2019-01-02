@@ -21,6 +21,7 @@ namespace AppQuanLyThuVien.UC
             loadTienPhat();
             loadNgayMuonToiDa();
             loadTheLoai();
+        
         }
         void loadKhuyenMai()
         {
