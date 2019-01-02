@@ -39,6 +39,11 @@ namespace AppQuanLyThuVien.DTO
             this.soLuongConLai = soLuongConLai;
         }
 
+        public Sach()
+        {
+
+        }
+
         public Sach(DataRow row)
         {
             this.maSach = row["ma_sach"].ToString();
