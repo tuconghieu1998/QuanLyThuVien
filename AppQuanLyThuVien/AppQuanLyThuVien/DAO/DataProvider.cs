@@ -13,7 +13,6 @@ namespace AppQuanLyThuVien.DAO
 
 
         private static DataProvider instance;
-        //Source=DESKTOP-LRU6PGB\\SQLEXPRESS;Initial Catalog=QLTV;Integrated Security=True";
         private string connectionString = "Data Source=DESKTOP-R5U5ONO\\SQLEXPRESS;Initial Catalog=LibraryUpdate2;Integrated Security=True";
 
         public static DataProvider Instance
