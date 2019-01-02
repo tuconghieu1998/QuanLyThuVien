@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\CaiDat_DAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\QuanLySach_DAO.cs" />
     <Compile Include="DAO\WorkWithDataCustomers.cs" />
