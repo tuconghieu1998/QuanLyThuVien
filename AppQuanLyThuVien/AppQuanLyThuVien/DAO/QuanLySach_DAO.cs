@@ -19,6 +19,19 @@ namespace AppQuanLyThuVien.DAO
                 "where SACH.ma_the_loai = THE_LOAI.ma_the_loai");
             return DataProvider.Instance.ExcuteQuery(query);
         }
+           
+        public static int KiemTraDuLieuLienQuanKhiXoa(string maSach)
+        {
+            string query = string.Format("Select count(ma_sach) as soLuong from MUON_SACH where ma_sach = '{0}'", maSach);
+            DataTable dt = DataProvider.Instance.ExcuteQuery(query);
+            int soLuong = int.Parse(dt.Rows[0]["soLuong"].ToString());
+
+            query = string.Format("Select count(ma_sach) as soLuong from TRA_SACH where ma_sach = '{0}'", maSach);
+            dt = DataProvider.Instance.ExcuteQuery(query);
+            soLuong += int.Parse(dt.Rows[0]["soLuong"].ToString());
+            return soLuong;
+        }
+
         public static string TaoMaSach(Sach sach, List<TheLoaiSach> list)
         {
             foreach (TheLoaiSach theLoai in list){
@@ -28,8 +41,17 @@ namespace AppQuanLyThuVien.DAO
                     break;
                 }
             }
-            string maSachMax = LayMaSachCaoNhat(sach.MaSach).Rows[0]["ma_sach"].ToString();
-            maSachMax = maSachMax.Substring(3);
+            DataTable dt = LayMaSachCaoNhat(sach.MaSach);
+            string maSachMax;
+            if(dt.Rows.Count > 0)
+            {
+                maSachMax = dt.Rows[0]["ma_sach"].ToString();
+                maSachMax = maSachMax.Substring(3);
+            }
+            else
+            {
+                maSachMax = "00000";
+            }
             int tmp = int.Parse(maSachMax) + 1;
             sach.MaSach = sach.MaSach + tmp.ToString().PadLeft(5, '0'); ;
             return sach.MaSach;
@@ -64,23 +86,51 @@ namespace AppQuanLyThuVien.DAO
 
         }
 
-        public static bool KiemTraTrungSach(Sach sach)
+        public static int XoaSach(string maSach)
         {
-            string query = string.Format("select count(ma_sach) as soLuong from SACH where ten_sach = N'{0}'" +
+
+            string query = string.Format("delete from MUON_SACH where ma_sach = '{0}'", maSach);
+            DataProvider.Instance.ExcuteNonQuery(query);
+            query = string.Format("delete from TRA_SACH where ma_sach = '{0}'", maSach);
+            DataProvider.Instance.ExcuteNonQuery(query);
+            query = string.Format("delete from SACH where ma_sach = '{0}'", maSach);
+            return DataProvider.Instance.ExcuteNonQuery(query);
+        }
+
+        public static string KiemTraTrungSach(Sach sach)
+        {
+            string query = string.Format("select ma_sach from SACH where ten_sach = N'{0}'" +
                 " and tac_gia = N'{1}' and nha_xuat_ban = N'{2}' and nam_xuat_ban = '{3}' and ma_the_loai = '{4}' and gia_sach = {5}",
                 sach.TenSach, sach.TenTacGia, sach.NhaXuatBan, sach.NamXuatBan,
                 sach.TheLoai, sach.GiaSach);
             DataTable dt = DataProvider.Instance.ExcuteQuery(query);
-            if (int.Parse(dt.Rows[0]["soLuong"].ToString()) > 0)
+            string maSach = "";
+            if (dt.Rows.Count > 0)
             {
-                return true;
+                maSach = dt.Rows[0]["ma_sach"].ToString();
             }
-            return false;
+            return maSach;
+        }
+        public static int LaySoLuongSachConLai(string maSach)
+        {
+            string query = string.Format("Select so_sach_con_lai from SACH where ma_sach = '{0}'", maSach);
+            DataTable dt = DataProvider.Instance.ExcuteQuery(query);
+            
+            return int.Parse(dt.Rows[0]["so_sach_con_lai"].ToString());
+
+        }
+        public static int LaySoLuongSach(string maSach)
+        {
+            string query = string.Format("Select so_luong from SACH where ma_sach = '{0}'", maSach);
+            DataTable dt = DataProvider.Instance.ExcuteQuery(query);
+            return int.Parse(dt.Rows[0]["so_luong"].ToString());
+
         }
         public static int SuaThongTinSach(Sach sach)
         {
-            string query = string.Format("update SACH set ten_sach = N'{0}',tac_gia = N'{1}',nha_xuat_ban= N'{2}',nam_xuat_ban '{3}'," +
-                " ma_the_loai = '{4}', gia_sach = '{5}', gia_muon = '{6}', so_sach_con_lai = '{7}', so_luong = '{8}' where ma_sach = '{9}'",
+
+            string query = string.Format("update SACH set ten_sach = N'{0}',tac_gia = N'{1}',nha_xuat_ban = N'{2}',nam_xuat_ban = '{3}'," +
+                " ma_the_loai = '{4}', gia_sach = '{5}', gia_muon = '{6}', so_luong = '{7}', so_sach_con_lai = '{8}' where ma_sach = '{9}'",
                 sach.TenSach, sach.TenTacGia, sach.NhaXuatBan, sach.NamXuatBan,
                 sach.TheLoai, sach.GiaSach, sach.GiaMuon, sach.SoLuong, sach.SoLuongConLai, sach.MaSach);
             return DataProvider.Instance.ExcuteNonQuery(query);

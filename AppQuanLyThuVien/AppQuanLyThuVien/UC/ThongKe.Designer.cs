@@ -32,8 +32,19 @@
             this.panel15 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.datePickerNgayBatDau = new System.Windows.Forms.DateTimePicker();
+            this.datePickerNgayKetThuc = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dtgThongKeHoatDongTheoNgay = new System.Windows.Forms.DataGridView();
+            this.btnThongKe = new System.Windows.Forms.Button();
+            this.Ngay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuongSachMuon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuongSachTra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DoanhThu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgThongKeHoatDongTheoNgay)).BeginInit();
             this.SuspendLayout();
             // 
             // panel15
@@ -66,11 +77,99 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "THỐNG KÊ";
             // 
+            // datePickerNgayBatDau
+            // 
+            this.datePickerNgayBatDau.Location = new System.Drawing.Point(128, 106);
+            this.datePickerNgayBatDau.Name = "datePickerNgayBatDau";
+            this.datePickerNgayBatDau.Size = new System.Drawing.Size(200, 20);
+            this.datePickerNgayBatDau.TabIndex = 11;
+            // 
+            // datePickerNgayKetThuc
+            // 
+            this.datePickerNgayKetThuc.Location = new System.Drawing.Point(422, 106);
+            this.datePickerNgayKetThuc.Name = "datePickerNgayKetThuc";
+            this.datePickerNgayKetThuc.Size = new System.Drawing.Size(200, 20);
+            this.datePickerNgayKetThuc.TabIndex = 12;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(26, 113);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(49, 13);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Từ ngày:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(360, 112);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(56, 13);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Đến ngày:";
+            // 
+            // dtgThongKeHoatDongTheoNgay
+            // 
+            this.dtgThongKeHoatDongTheoNgay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgThongKeHoatDongTheoNgay.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Ngay,
+            this.SoLuongSachMuon,
+            this.SoLuongSachTra,
+            this.DoanhThu});
+            this.dtgThongKeHoatDongTheoNgay.Location = new System.Drawing.Point(128, 158);
+            this.dtgThongKeHoatDongTheoNgay.Name = "dtgThongKeHoatDongTheoNgay";
+            this.dtgThongKeHoatDongTheoNgay.Size = new System.Drawing.Size(544, 325);
+            this.dtgThongKeHoatDongTheoNgay.TabIndex = 16;
+            // 
+            // btnThongKe
+            // 
+            this.btnThongKe.Location = new System.Drawing.Point(652, 106);
+            this.btnThongKe.Name = "btnThongKe";
+            this.btnThongKe.Size = new System.Drawing.Size(98, 23);
+            this.btnThongKe.TabIndex = 17;
+            this.btnThongKe.Text = "Thống kê";
+            this.btnThongKe.UseVisualStyleBackColor = true;
+            this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
+            // 
+            // Ngay
+            // 
+            this.Ngay.DataPropertyName = "ngay";
+            this.Ngay.HeaderText = "Ngày";
+            this.Ngay.Name = "Ngay";
+            this.Ngay.Width = 150;
+            // 
+            // SoLuongSachMuon
+            // 
+            this.SoLuongSachMuon.DataPropertyName = "soLuongSachMuon";
+            this.SoLuongSachMuon.HeaderText = "Số lượng sách mượn";
+            this.SoLuongSachMuon.Name = "SoLuongSachMuon";
+            this.SoLuongSachMuon.Width = 130;
+            // 
+            // SoLuongSachTra
+            // 
+            this.SoLuongSachTra.DataPropertyName = "soLuongSachTra";
+            this.SoLuongSachTra.HeaderText = "Số lượng sách trả";
+            this.SoLuongSachTra.Name = "SoLuongSachTra";
+            this.SoLuongSachTra.Width = 120;
+            // 
+            // DoanhThu
+            // 
+            this.DoanhThu.DataPropertyName = "doanhThu";
+            this.DoanhThu.HeaderText = "DoanhThu";
+            this.DoanhThu.Name = "DoanhThu";
+            // 
             // ThongKe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.btnThongKe);
+            this.Controls.Add(this.dtgThongKeHoatDongTheoNgay);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.datePickerNgayKetThuc);
+            this.Controls.Add(this.datePickerNgayBatDau);
             this.Controls.Add(this.panel15);
             this.Name = "ThongKe";
             this.Size = new System.Drawing.Size(850, 500);
@@ -78,7 +177,9 @@
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgThongKeHoatDongTheoNgay)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -87,5 +188,15 @@
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker datePickerNgayBatDau;
+        private System.Windows.Forms.DateTimePicker datePickerNgayKetThuc;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView dtgThongKeHoatDongTheoNgay;
+        private System.Windows.Forms.Button btnThongKe;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ngay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongSachMuon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongSachTra;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DoanhThu;
     }
 }
