@@ -25,11 +25,8 @@ namespace AppQuanLyThuVien.UC
         }
         void loadData()
         {
-            string query = "SELECT ma_doc_gia as N'Mã độc giả', ho_ten as N'Họ tên', cmnd as 'CMND', ngay_sinh as N'Ngày sinh', gioi_tinh as N'Giới tính', email as 'Email', dia_chi as N'Địa chỉ', ngay_dang_ky as N'Ngày đăng ký', cap_do as N'Cấp độ', hoat_dong as N'Hoạt động' FROM DOC_GIA";
-
-            DataTable tabel = new DataTable();
-            tabel = DataProvider.Instance.ExcuteQuery(query);
-            dataGridView.DataSource = tabel;
+           
+            dataGridView.DataSource = Data.loadData();
 
         }
         void setUpListComboBox()
