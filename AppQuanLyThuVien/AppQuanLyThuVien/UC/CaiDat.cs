@@ -70,6 +70,11 @@ namespace AppQuanLyThuVien.UC
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if(tienPhatNgayText.Text == "" || tienPhatTuanText.Text == "")
+            {
+                MessageBox.Show("Không được để trống");
+                return;
+            }
             int result = CaiDat_DAO.EditDataForTienPhat(tienPhatNgayText.Text, tienPhatTuanText.Text);
             if (result >= 1)
             {
@@ -80,6 +85,25 @@ namespace AppQuanLyThuVien.UC
 
         private void ChangeDiscount_Click(object sender, EventArgs e)
         {
+            if(ptKhuyenMaiText.Text == "")
+            {
+                MessageBox.Show("Không được để trống");
+                return;
+            }
+            try
+            {
+                int m = Int32.Parse(ptKhuyenMaiText.Text);
+                if (m > 100 || m < 0)
+                {
+                    MessageBox.Show("Phần trăm không vượt quá 100 và không nhỏ hơn 0");
+                    return;
+                }
+            }
+            catch (FormatException )
+            {
+                MessageBox.Show("Không được nhập kí tự");
+                return;
+            }
             int result = CaiDat_DAO.EditDataForKhuyenMai(CapDoText.Text, ptKhuyenMaiText.Text);
             if (result >= 1)
             {
@@ -92,6 +116,11 @@ namespace AppQuanLyThuVien.UC
 
         private void ChangeNgayMuon_Click(object sender, EventArgs e)
         {
+            if(NgayMuonToiDaText.Text == "")
+            {
+                MessageBox.Show("Không được để trống");
+                return;
+            }
             int result = CaiDat_DAO.EditDataForNgayMuon(NgayMuonToiDaText.Text);
             if (result >= 1)
             {
@@ -103,6 +132,11 @@ namespace AppQuanLyThuVien.UC
 
         private void AddTheLoai_Click(object sender, EventArgs e)
         {
+            if (tenTheLoaiText.Text == "" || maSachTuongUngText.Text == "")
+            {
+                MessageBox.Show("Không được để trống");
+                return;
+            }
            int result = CaiDat_DAO.InsertDataForTheLoai(tenTheLoaiText.Text, maSachTuongUngText.Text);
             if (result >= 1)
             {
