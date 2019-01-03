@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace AppQuanLyThuVien.DAO
+namespace LB.DAO
 {
     class DataProvider
     {
 
 
         private static DataProvider instance;
-        private string connectionString = "Data Source=DESKTOP-R5U5ONO\\SQLEXPRESS;Initial Catalog=LibraryUpdate2;Integrated Security=True";
+        private string connectionString = "Data Source=DESKTOP-R5U5ONO\\SQLEXPRESS;Initial Catalog=LibraryManagement;Integrated Security=True";
 
         public static DataProvider Instance
         {
@@ -53,34 +53,6 @@ namespace AppQuanLyThuVien.DAO
                 SqlCommand command = new SqlCommand(query, connection);
 
                 data = command.ExecuteNonQuery();
-                connection.Close();
-            }
-            return data;
-        }
-        public int ExcuteScalarInt(string query)
-        {
-            int data = 0;
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                SqlCommand command = new SqlCommand(query, connection);
-
-                data = (int)command.ExecuteScalar();
-                connection.Close();
-            }
-            return data;
-        }
-        public string ExcuteScalarString(string query)
-        {
-            string data = "";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                SqlCommand command = new SqlCommand(query, connection);
-
-                data = command.ExecuteScalar().ToString();
                 connection.Close();
             }
             return data;

@@ -45,14 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\CaiDat_DAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
-    <Compile Include="DAO\QuanLySach_DAO.cs" />
     <Compile Include="DAO\WorkWithDataCustomers.cs" />
-    <Compile Include="DTO\ListTimKiemSach.cs" />
-    <Compile Include="DTO\Sach.cs" />
     <Compile Include="DTO\SearchList.cs" />
-    <Compile Include="DTO\TheLoaiSach.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
