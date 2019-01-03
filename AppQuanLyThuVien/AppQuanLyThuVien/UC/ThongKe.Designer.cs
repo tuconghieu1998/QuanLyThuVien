@@ -42,6 +42,7 @@
             this.SoLuongSachMuon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoLuongSachTra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DoanhThu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgThongKeHoatDongTheoNgay)).BeginInit();
@@ -159,11 +160,22 @@
             this.DoanhThu.HeaderText = "DoanhThu";
             this.DoanhThu.Name = "DoanhThu";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(153, 61);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(469, 25);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "Thống kê hoạt động của thư viện theo ngày";
+            // 
             // ThongKe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnThongKe);
             this.Controls.Add(this.dtgThongKeHoatDongTheoNgay);
             this.Controls.Add(this.label3);
@@ -198,5 +210,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongSachMuon;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongSachTra;
         private System.Windows.Forms.DataGridViewTextBoxColumn DoanhThu;
+        private System.Windows.Forms.Label label4;
     }
 }

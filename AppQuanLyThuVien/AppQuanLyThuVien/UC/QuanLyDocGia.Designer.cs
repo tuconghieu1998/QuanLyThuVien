@@ -374,6 +374,7 @@
             // WatchButton
             // 
             this.WatchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WatchButton.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WatchButton.Image = ((System.Drawing.Image)(resources.GetObject("WatchButton.Image")));
             this.WatchButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.WatchButton.Location = new System.Drawing.Point(292, 2);
@@ -389,6 +390,7 @@
             // Edit
             // 
             this.Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Edit.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Edit.Image = ((System.Drawing.Image)(resources.GetObject("Edit.Image")));
             this.Edit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.Edit.Location = new System.Drawing.Point(197, 2);
@@ -404,6 +406,7 @@
             // Remove
             // 
             this.Remove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Remove.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Remove.Image = ((System.Drawing.Image)(resources.GetObject("Remove.Image")));
             this.Remove.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.Remove.Location = new System.Drawing.Point(106, 2);
@@ -419,6 +422,7 @@
             // Add
             // 
             this.Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Add.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Add.Image = ((System.Drawing.Image)(resources.GetObject("Add.Image")));
             this.Add.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.Add.Location = new System.Drawing.Point(15, 2);
