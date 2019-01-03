@@ -146,7 +146,7 @@ namespace AppQuanLyThuVien.DAO
         public static List<String> TimKiemSachTheoTen_LayTen(string name)
         {
             List<string> list = new List<string>();
-            string query = string.Format("select top 10 distinct ten_sach from SACH where ten_sach like N'%{0}%'", name);
+            string query = string.Format("select distinct top 10 ten_sach from SACH where ten_sach like N'%{0}%'", name);
             DataTable dt = DataProvider.Instance.ExcuteQuery(query);
             foreach (DataRow item in dt.Rows)
             {
