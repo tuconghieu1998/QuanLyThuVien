@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuanLySach));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnDatLai = new System.Windows.Forms.Button();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.nSoLuong = new System.Windows.Forms.NumericUpDown();
             this.lblNumberOfBook = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txbMaSach = new System.Windows.Forms.TextBox();
@@ -45,8 +46,10 @@
             this.cmbTheLoai = new System.Windows.Forms.ComboBox();
             this.lblCategory = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.nNamXB = new System.Windows.Forms.NumericUpDown();
             this.lblPublishingYear = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.nGiaSach = new System.Windows.Forms.NumericUpDown();
             this.lblBookPrice = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txbTenSach = new System.Windows.Forms.TextBox();
@@ -55,6 +58,7 @@
             this.txbTacGia = new System.Windows.Forms.TextBox();
             this.lblAuthor = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.nGiaMuon = new System.Windows.Forms.NumericUpDown();
             this.lblCostBorrow = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
             this.btnThemSach = new System.Windows.Forms.Button();
@@ -62,10 +66,10 @@
             this.btnXoaSach = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.cbSearchChoose = new System.Windows.Forms.ComboBox();
+            this.cmbSearchChoose = new System.Windows.Forms.ComboBox();
             this.lblSearchChoose = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cmbTimKiem = new System.Windows.Forms.ComboBox();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.panel15 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -82,21 +86,21 @@
             this.so_luong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.so_luong_con_lai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.nSoLuong = new System.Windows.Forms.NumericUpDown();
-            this.nNamXB = new System.Windows.Forms.NumericUpDown();
-            this.nGiaSach = new System.Windows.Forms.NumericUpDown();
-            this.nGiaMuon = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nSoLuong)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nNamXB)).BeginInit();
             this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nGiaSach)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nGiaMuon)).BeginInit();
             this.panel13.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -104,10 +108,6 @@
             this.panel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDanhSachSach)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nSoLuong)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nNamXB)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nGiaSach)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nGiaMuon)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -161,6 +161,18 @@
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(123, 37);
             this.panel14.TabIndex = 8;
+            // 
+            // nSoLuong
+            // 
+            this.nSoLuong.Location = new System.Drawing.Point(67, 9);
+            this.nSoLuong.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+            this.nSoLuong.Name = "nSoLuong";
+            this.nSoLuong.Size = new System.Drawing.Size(43, 20);
+            this.nSoLuong.TabIndex = 1;
             // 
             // lblNumberOfBook
             // 
@@ -238,6 +250,7 @@
             // 
             // cmbTheLoai
             // 
+            this.cmbTheLoai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTheLoai.FormattingEnabled = true;
             this.cmbTheLoai.Location = new System.Drawing.Point(73, 10);
             this.cmbTheLoai.Name = "cmbTheLoai";
@@ -263,6 +276,24 @@
             this.panel8.Size = new System.Drawing.Size(208, 37);
             this.panel8.TabIndex = 5;
             // 
+            // nNamXB
+            // 
+            this.nNamXB.Location = new System.Drawing.Point(73, 9);
+            this.nNamXB.Maximum = new decimal(new int[] {
+            2030,
+            0,
+            0,
+            0});
+            this.nNamXB.Name = "nNamXB";
+            this.nNamXB.Size = new System.Drawing.Size(130, 20);
+            this.nNamXB.TabIndex = 1;
+            this.nNamXB.Value = new decimal(new int[] {
+            2018,
+            0,
+            0,
+            0});
+            this.nNamXB.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
+            // 
             // lblPublishingYear
             // 
             this.lblPublishingYear.AutoSize = true;
@@ -281,6 +312,23 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(157, 37);
             this.panel9.TabIndex = 6;
+            // 
+            // nGiaSach
+            // 
+            this.nGiaSach.Increment = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
+            this.nGiaSach.Location = new System.Drawing.Point(68, 10);
+            this.nGiaSach.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.nGiaSach.Name = "nGiaSach";
+            this.nGiaSach.Size = new System.Drawing.Size(85, 20);
+            this.nGiaSach.TabIndex = 1;
             // 
             // lblBookPrice
             // 
@@ -352,6 +400,23 @@
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(156, 37);
             this.panel10.TabIndex = 7;
+            // 
+            // nGiaMuon
+            // 
+            this.nGiaMuon.Increment = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
+            this.nGiaMuon.Location = new System.Drawing.Point(73, 9);
+            this.nGiaMuon.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            this.nGiaMuon.Name = "nGiaMuon";
+            this.nGiaMuon.Size = new System.Drawing.Size(80, 20);
+            this.nGiaMuon.TabIndex = 1;
             // 
             // lblCostBorrow
             // 
@@ -429,20 +494,21 @@
             // 
             // panel12
             // 
-            this.panel12.Controls.Add(this.cbSearchChoose);
+            this.panel12.Controls.Add(this.cmbSearchChoose);
             this.panel12.Controls.Add(this.lblSearchChoose);
             this.panel12.Location = new System.Drawing.Point(7, 45);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(289, 29);
             this.panel12.TabIndex = 2;
             // 
-            // cbSearchChoose
+            // cmbSearchChoose
             // 
-            this.cbSearchChoose.FormattingEnabled = true;
-            this.cbSearchChoose.Location = new System.Drawing.Point(88, 4);
-            this.cbSearchChoose.Name = "cbSearchChoose";
-            this.cbSearchChoose.Size = new System.Drawing.Size(198, 21);
-            this.cbSearchChoose.TabIndex = 1;
+            this.cmbSearchChoose.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSearchChoose.FormattingEnabled = true;
+            this.cmbSearchChoose.Location = new System.Drawing.Point(88, 4);
+            this.cmbSearchChoose.Name = "cmbSearchChoose";
+            this.cmbSearchChoose.Size = new System.Drawing.Size(198, 21);
+            this.cmbSearchChoose.TabIndex = 1;
             // 
             // lblSearchChoose
             // 
@@ -455,20 +521,25 @@
             // 
             // panel11
             // 
-            this.panel11.Controls.Add(this.comboBox2);
+            this.panel11.Controls.Add(this.cmbTimKiem);
             this.panel11.Controls.Add(this.btnTimKiem);
             this.panel11.Location = new System.Drawing.Point(3, 3);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(289, 42);
             this.panel11.TabIndex = 1;
             // 
-            // comboBox2
+            // cmbTimKiem
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(7, 11);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(198, 21);
-            this.comboBox2.TabIndex = 3;
+            this.cmbTimKiem.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbTimKiem.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cmbTimKiem.FormattingEnabled = true;
+            this.cmbTimKiem.Location = new System.Drawing.Point(7, 11);
+            this.cmbTimKiem.Name = "cmbTimKiem";
+            this.cmbTimKiem.Size = new System.Drawing.Size(198, 21);
+            this.cmbTimKiem.TabIndex = 3;
+            this.cmbTimKiem.SelectedIndexChanged += new System.EventHandler(this.cmbTimKiem_SelectedIndexChanged);
+            this.cmbTimKiem.TextChanged += new System.EventHandler(this.cmbTimKiem_TextChanged);
+            this.cmbTimKiem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbTimKiem_KeyDown);
             // 
             // btnTimKiem
             // 
@@ -479,6 +550,7 @@
             this.btnTimKiem.TabIndex = 2;
             this.btnTimKiem.Text = "Tìm kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // panel15
             // 
@@ -513,14 +585,14 @@
             // dtgDanhSachSach
             // 
             this.dtgDanhSachSach.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgDanhSachSach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgDanhSachSach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtgDanhSachSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgDanhSachSach.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ma_sach,
@@ -619,70 +691,6 @@
             this.so_luong_con_lai.ReadOnly = true;
             this.so_luong_con_lai.Width = 120;
             // 
-            // nSoLuong
-            // 
-            this.nSoLuong.Location = new System.Drawing.Point(67, 9);
-            this.nSoLuong.Maximum = new decimal(new int[] {
-            300,
-            0,
-            0,
-            0});
-            this.nSoLuong.Name = "nSoLuong";
-            this.nSoLuong.Size = new System.Drawing.Size(43, 20);
-            this.nSoLuong.TabIndex = 1;
-            // 
-            // nNamXB
-            // 
-            this.nNamXB.Location = new System.Drawing.Point(73, 9);
-            this.nNamXB.Maximum = new decimal(new int[] {
-            2030,
-            0,
-            0,
-            0});
-            this.nNamXB.Name = "nNamXB";
-            this.nNamXB.Size = new System.Drawing.Size(130, 20);
-            this.nNamXB.TabIndex = 1;
-            this.nNamXB.Value = new decimal(new int[] {
-            2018,
-            0,
-            0,
-            0});
-            this.nNamXB.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
-            // 
-            // nGiaSach
-            // 
-            this.nGiaSach.Increment = new decimal(new int[] {
-            500,
-            0,
-            0,
-            0});
-            this.nGiaSach.Location = new System.Drawing.Point(68, 10);
-            this.nGiaSach.Maximum = new decimal(new int[] {
-            100000000,
-            0,
-            0,
-            0});
-            this.nGiaSach.Name = "nGiaSach";
-            this.nGiaSach.Size = new System.Drawing.Size(85, 20);
-            this.nGiaSach.TabIndex = 1;
-            // 
-            // nGiaMuon
-            // 
-            this.nGiaMuon.Increment = new decimal(new int[] {
-            500,
-            0,
-            0,
-            0});
-            this.nGiaMuon.Location = new System.Drawing.Point(73, 9);
-            this.nGiaMuon.Maximum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            0});
-            this.nGiaMuon.Name = "nGiaMuon";
-            this.nGiaMuon.Size = new System.Drawing.Size(80, 20);
-            this.nGiaMuon.TabIndex = 1;
-            // 
             // QuanLySach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -698,6 +706,7 @@
             this.groupBox1.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nSoLuong)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -706,14 +715,17 @@
             this.panel7.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nNamXB)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nGiaSach)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nGiaMuon)).EndInit();
             this.panel13.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
@@ -723,10 +735,6 @@
             this.panel15.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDanhSachSach)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nSoLuong)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nNamXB)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nGiaSach)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nGiaMuon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -745,7 +753,7 @@
         private System.Windows.Forms.Label lblBookPrice;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.ComboBox cbSearchChoose;
+        private System.Windows.Forms.ComboBox cmbSearchChoose;
         private System.Windows.Forms.Label lblSearchChoose;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Button btnTimKiem;
@@ -772,7 +780,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dtgDanhSachSach;
         private System.Windows.Forms.ComboBox cmbTheLoai;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbTimKiem;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button btnDatLai;

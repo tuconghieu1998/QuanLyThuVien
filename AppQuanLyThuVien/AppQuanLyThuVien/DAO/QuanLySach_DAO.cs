@@ -28,10 +28,10 @@ namespace AppQuanLyThuVien.DAO
                     break;
                 }
             }
-            string maSachMax = LayMaSachCaoNhat(sach.MaSach).Rows[0][0].ToString();
+            string maSachMax = LayMaSachCaoNhat(sach.MaSach).Rows[0]["ma_sach"].ToString();
             maSachMax = maSachMax.Substring(3);
             int tmp = int.Parse(maSachMax) + 1;
-            sach.MaSach = sach.MaSach + tmp.ToString();
+            sach.MaSach = sach.MaSach + tmp.ToString().PadLeft(5, '0'); ;
             return sach.MaSach;
         }
 
@@ -58,10 +58,24 @@ namespace AppQuanLyThuVien.DAO
             string query = string.Format("insert SACH (ma_sach,ten_sach,tac_gia,nha_xuat_ban,nam_xuat_ban," +
                 " ma_the_loai, gia_sach, gia_muon, so_sach_con_lai, so_luong)" +
                 " values ('{0}',N'{1}',N'{2}',N'{3}','{4}','{5}','{6}','{7}','{8}','{9}')",
-                sach.TenSach, sach.TenTacGia, sach.NhaXuatBan, sach.NamXuatBan,
+                sach.MaSach, sach.TenSach, sach.TenTacGia, sach.NhaXuatBan, sach.NamXuatBan,
                 sach.TheLoai, sach.GiaSach, sach.GiaMuon, sach.SoLuong, sach.SoLuong);
             return DataProvider.Instance.ExcuteNonQuery(query);
 
+        }
+
+        public static bool KiemTraTrungSach(Sach sach)
+        {
+            string query = string.Format("select count(ma_sach) as soLuong from SACH where ten_sach = N'{0}'" +
+                " and tac_gia = N'{1}' and nha_xuat_ban = N'{2}' and nam_xuat_ban = '{3}' and ma_the_loai = '{4}' and gia_sach = {5}",
+                sach.TenSach, sach.TenTacGia, sach.NhaXuatBan, sach.NamXuatBan,
+                sach.TheLoai, sach.GiaSach);
+            DataTable dt = DataProvider.Instance.ExcuteQuery(query);
+            if (int.Parse(dt.Rows[0]["soLuong"].ToString()) > 0)
+            {
+                return true;
+            }
+            return false;
         }
         public static int SuaThongTinSach(Sach sach)
         {
@@ -73,23 +87,84 @@ namespace AppQuanLyThuVien.DAO
         }
         public static DataTable TimKiemSachTheoTen(string name)
         {
-            string query = string.Format("select * from SACH where ten_sach like N'%{0}%'", name);
+            string query = string.Format("Select ma_sach, ten_sach," +
+                " tac_gia, nha_xuat_ban, nam_xuat_ban, ten_the_loai, gia_sach," +
+                " gia_muon, so_luong, so_sach_con_lai from SACH, THE_LOAI " +
+                "where SACH.ma_the_loai = THE_LOAI.ma_the_loai and ten_sach like N'%{0}%'", name);
             return DataProvider.Instance.ExcuteQuery(query);
+        }
+        public static List<String> TimKiemSachTheoTen_LayTen(string name)
+        {
+            List<string> list = new List<string>();
+            string query = string.Format("select top 10 distinct ten_sach from SACH where ten_sach like N'%{0}%'", name);
+            DataTable dt = DataProvider.Instance.ExcuteQuery(query);
+            foreach (DataRow item in dt.Rows)
+            {
+                list.Add(item["ten_sach"].ToString());
+            }
+            return list;
         }
         public static DataTable TimKiemSachTheoMaSach(string maSach)
         {
-            string query = string.Format("select * from SACH where ma_sach like '%{0}%'", maSach);
+            string query = string.Format("Select ma_sach, ten_sach," +
+                " tac_gia, nha_xuat_ban, nam_xuat_ban, ten_the_loai, gia_sach," +
+                " gia_muon, so_luong, so_sach_con_lai from SACH, THE_LOAI " +
+                "where SACH.ma_the_loai = THE_LOAI.ma_the_loai and ma_sach like '%{0}%'", maSach);
             return DataProvider.Instance.ExcuteQuery(query);
+        }
+        public static List<string> TimKiemSachTheoMaSach_LayMaSach(string maSach)
+        {
+            List<string> list = new List<string>();
+            string query = string.Format("select top 10 ma_sach from SACH where ma_sach like '%{0}%'", maSach);
+            DataTable dt = DataProvider.Instance.ExcuteQuery(query);
+            foreach (DataRow item in dt.Rows)
+            {
+                list.Add(item["ma_sach"].ToString());
+            }
+            return list;
+            
+            
         }
         public static DataTable TimKiemSachTheoTacGia(string tacGia)
         {
-            string query = string.Format("select * from SACH where tac_gia like N'%{0}%'", tacGia);
+            string query = string.Format("Select ma_sach, ten_sach," +
+                " tac_gia, nha_xuat_ban, nam_xuat_ban, ten_the_loai, gia_sach," +
+                " gia_muon, so_luong, so_sach_con_lai from SACH, THE_LOAI " +
+                "where SACH.ma_the_loai = THE_LOAI.ma_the_loai and like N'%{0}%'", tacGia);
             return DataProvider.Instance.ExcuteQuery(query);
+        }
+        public static List<string> TimKiemSachTheoTacGia_LayTacGia(string tacGia)
+        {
+            List<string> list = new List<string>();
+            string query = string.Format("select top 10 tac_gia from SACH where tac_gia like N'%{0}%'", tacGia);
+            DataTable dt = DataProvider.Instance.ExcuteQuery(query);
+            foreach (DataRow item in dt.Rows)
+            {
+                list.Add(item["tac_gia"].ToString());
+            }
+            return list;
+            
         }
         public static DataTable TimKiemSachTheoTheLoai(string theLoai)
         {
-            string query = string.Format("select * from SACH, THELOAI where SACH.ma_the_loai = THELOAI.ma_the_loai and THELOAI.ten_the_loai like N'%{0}%'", theLoai);
+            string query = string.Format("Select ma_sach, ten_sach," +
+                " tac_gia, nha_xuat_ban, nam_xuat_ban, ten_the_loai, gia_sach," +
+                " gia_muon, so_luong, so_sach_con_lai from SACH, THE_LOAI " +
+                "where SACH.ma_the_loai = THE_LOAI.ma_the_loai and THE_LOAI.ten_the_loai like N'%{0}%'", theLoai);
             return DataProvider.Instance.ExcuteQuery(query);
+        }
+        public static List<string> TimKiemSachTheoTheLoai_LayTheLoai(string theLoai)
+        {
+            List<string> list = new List<string>();
+            string query = string.Format("select ten_the_loai from THE_LOAI where THE_LOAI.ten_the_loai like N'%{0}%'", theLoai);
+            DataTable dt = DataProvider.Instance.ExcuteQuery(query);
+            foreach (DataRow item in dt.Rows)
+            {
+                list.Add(item["ten_the_loai"].ToString());
+            }
+            return list;
+            
+            
         }
     }
 }
