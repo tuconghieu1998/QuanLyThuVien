@@ -16,6 +16,10 @@ namespace AppQuanLyThuVien
         public Form1()
         {
             InitializeComponent();
+            panelContainer.Controls.Clear();
+            QuanLySach uc = new QuanLySach();
+            uc.Dock = DockStyle.Fill;
+            panelContainer.Controls.Add(uc);
         }
 
         private void btnQuanLySach_Click(object sender, EventArgs e)

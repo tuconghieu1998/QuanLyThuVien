@@ -47,10 +47,14 @@
   <ItemGroup>
     <Compile Include="DAO\CaiDat_DAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\MuonSach_DAO.cs" />
     <Compile Include="DAO\QuanLySach_DAO.cs" />
     <Compile Include="DAO\ThongKe_DAO.cs" />
+    <Compile Include="DAO\TraSach_DAO.cs" />
     <Compile Include="DAO\WorkWithDataCustomers.cs" />
     <Compile Include="DTO\ListTimKiemSach.cs" />
+    <Compile Include="DTO\PhieuMuon.cs" />
+    <Compile Include="DTO\PhieuTra.cs" />
     <Compile Include="DTO\Sach.cs" />
     <Compile Include="DTO\SearchList.cs" />
     <Compile Include="DTO\TheLoaiSach.cs" />
